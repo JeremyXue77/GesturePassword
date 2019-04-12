@@ -8,9 +8,15 @@
 
 import UIKit
 
+enum GesturePasswordType: Int {
+    case setting = 0
+    case unlock = 1
+}
+
 class ViewController: UIViewController {
     
     private var currentPoint: CGPoint?
+    private var gesturePasswordType = GesturePasswordType.setting
     private var password = [Int]()
     private var selectedPassword = [Int]()
     private var lineLayers = [CAShapeLayer]()
@@ -24,6 +30,11 @@ class ViewController: UIViewController {
     @IBAction func changeRows(_ sender: UIStepper) {
         row = Int(sender.value)
         gestureCollectionView.reloadSections(IndexSet(integer: 0))
+    }
+    
+    @IBAction func changeType(_ sender: UISegmentedControl) {
+        guard let type = GesturePasswordType(rawValue: sender.selectedSegmentIndex) else { return }
+        gesturePasswordType = type
     }
     
     override func viewDidLoad() {
@@ -59,6 +70,22 @@ class ViewController: UIViewController {
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         gestureCollectionView.touchesEnded(touches, with: event)
+    }
+    
+    func showMessageAlert(message: String) {
+        let alert = UIAlertController(title: "Gesture Password", message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { [weak self](action) in
+            self?.lineLayers.forEach { (layer) in
+                layer.removeFromSuperlayer()
+            }
+            self?.selectedPassword.removeAll()
+            self?.gestureCollectionView.reloadSections(IndexSet(integer: 0))
+            self?.currentPoint = nil
+            self?.moveLayer?.removeFromSuperlayer()
+            self?.moveLayer = nil
+        }
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
     }
 }
 
@@ -132,13 +159,29 @@ extension ViewController: GestureCollectionViewDelegate {
     }
     
     func cancel() {
-        lineLayers.forEach { (layer) in
-            layer.removeFromSuperlayer()
+        switch gesturePasswordType {
+        case .setting:
+            if selectedPassword.count >= 4 {
+                password = selectedPassword
+                showMessageAlert(message: "Password setting is successful")
+            } else {
+                showMessageAlert(message: "Password must be greater than 4, please try again")
+            }
+        case .unlock:
+            print(selectedPassword)
+            print(password)
+            if selectedPassword == password {
+                showMessageAlert(message: "Unlocked successfully")
+            } else {
+                lineLayers.forEach { (layer) in
+                    layer.strokeColor = UIColor.red.cgColor
+                }
+                gestureCollectionView.visibleCells.forEach { (cell) in
+                    cell.layer.borderColor = UIColor.red.cgColor
+                }
+                gestureCollectionView.reloadData()
+                showMessageAlert(message: "Unlock failed, please try again")
+            }
         }
-        selectedPassword.removeAll()
-        gestureCollectionView.reloadSections(IndexSet(integer: 0))
-        currentPoint = nil
-        moveLayer?.removeFromSuperlayer()
-        moveLayer = nil
     }
 }

@@ -54,6 +54,9 @@
                                     <segment title="Unlock password"/>
                                 </segments>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="changeType:" destination="BYZ-38-t0r" eventType="valueChanged" id="ZWs-Ga-xlH"/>
+                                </connections>
                             </segmentedControl>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" maximumValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="k3F-VE-hw3">
                                 <rect key="frame" x="160" y="745" width="94" height="29"/>
