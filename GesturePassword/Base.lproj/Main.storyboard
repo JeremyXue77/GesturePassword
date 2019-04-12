@@ -24,7 +24,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="q6X-71-gxJ">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="q6X-71-gxJ" customClass="GestureCollectionView" customModule="GesturePassword" customModuleProvider="target">
                                 <rect key="frame" x="41.5" y="282.5" width="331" height="331"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -43,42 +43,15 @@
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="137" height="132"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" tag="-1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Zd-Ul-RxY">
-                                                    <rect key="frame" x="34.5" y="32" width="68.5" height="68.5"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="9Zd-Ul-RxY" secondAttribute="height" multiplier="1:1" id="J74-di-nUW"/>
-                                                    </constraints>
-                                                    <state key="normal" title="●"/>
-                                                </button>
-                                            </subviews>
                                         </view>
-                                        <constraints>
-                                            <constraint firstItem="9Zd-Ul-RxY" firstAttribute="width" secondItem="QlY-b4-KSk" secondAttribute="width" multiplier="1:2" id="H1I-dq-vbN"/>
-                                            <constraint firstItem="9Zd-Ul-RxY" firstAttribute="centerX" secondItem="QlY-b4-KSk" secondAttribute="centerX" id="R9n-nl-zIU"/>
-                                            <constraint firstItem="9Zd-Ul-RxY" firstAttribute="centerY" secondItem="QlY-b4-KSk" secondAttribute="centerY" id="oYX-6d-GJw"/>
-                                        </constraints>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="alR-qE-7d5">
-                                <rect key="frame" x="324" y="44" width="70" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="Hev-bi-7wh"/>
-                                    <constraint firstAttribute="width" constant="70" id="wh6-eQ-ZLy"/>
-                                </constraints>
-                                <state key="normal" title="RESET"/>
-                                <connections>
-                                    <action selector="reset:" destination="BYZ-38-t0r" eventType="touchUpInside" id="i5S-6L-zZs"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="q6X-71-gxJ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="1Vw-Th-GB3"/>
                             <constraint firstItem="q6X-71-gxJ" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="4:5" id="1gO-Yt-OI0"/>
-                            <constraint firstItem="alR-qE-7d5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="HJh-RN-Vch"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="alR-qE-7d5" secondAttribute="trailing" constant="20" id="MP5-0R-KST"/>
                             <constraint firstItem="Rdt-CK-3oA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="MnS-lR-yxN"/>
                             <constraint firstItem="q6X-71-gxJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Sln-gG-yHi"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Rdt-CK-3oA" secondAttribute="trailing" constant="10" id="x67-Nb-hTN"/>
