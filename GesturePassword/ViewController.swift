@@ -26,6 +26,7 @@ class ViewController: UIViewController {
         gestureCollectionView.dataSource = self
         gestureCollectionView.delegate = self
         gestureCollectionView.gestureDelegate = self
+        gestureCollectionView.isUserInteractionEnabled = false
     }
     
     private func drawLine(to point: CGPoint) {
@@ -47,6 +48,13 @@ class ViewController: UIViewController {
         currentPoint = point
     }
     
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        gestureCollectionView.touchesMoved(touches, with: event)
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        gestureCollectionView.touchesEnded(touches, with: event)
+    }
 }
 
 extension ViewController: UICollectionViewDataSource {
