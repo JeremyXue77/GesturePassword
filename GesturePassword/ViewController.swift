@@ -28,8 +28,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var gestureCollectionView: GestureCollectionView!
     
     @IBAction func changeRows(_ sender: UIStepper) {
-        row = Int(sender.value)
-        gestureCollectionView.reloadSections(IndexSet(integer: 0))
+        let alert = UIAlertController(title: "", message: "Your password will be cleared. Do you want to continue?", preferredStyle: .alert)
+        let continueAction = UIAlertAction(title: "Continue", style: .default) { [weak self](_) in
+            self?.row = Int(sender.value)
+            self?.password = []
+            self?.gestureCollectionView.reloadSections(IndexSet(integer: 0))
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(continueAction)
+        alert.addAction(cancelAction)
+        self.present(alert, animated: true, completion: nil)
     }
     
     @IBAction func changeType(_ sender: UISegmentedControl) {
@@ -74,7 +82,7 @@ class ViewController: UIViewController {
     
     func showMessageAlert(message: String) {
         let alert = UIAlertController(title: "Gesture Password", message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default) { [weak self](action) in
+        let okAction = UIAlertAction(title: "OK", style: .default) { [weak self](_) in
             self?.lineLayers.forEach { (layer) in
                 layer.removeFromSuperlayer()
             }
@@ -168,8 +176,6 @@ extension ViewController: GestureCollectionViewDelegate {
                 showMessageAlert(message: "Password must be greater than 4, please try again")
             }
         case .unlock:
-            print(selectedPassword)
-            print(password)
             if selectedPassword == password {
                 showMessageAlert(message: "Unlocked successfully")
             } else {
@@ -179,6 +185,7 @@ extension ViewController: GestureCollectionViewDelegate {
                 gestureCollectionView.visibleCells.forEach { (cell) in
                     cell.layer.borderColor = UIColor.red.cgColor
                 }
+                moveLayer?.strokeColor = UIColor.red.cgColor
                 gestureCollectionView.reloadData()
                 showMessageAlert(message: "Unlock failed, please try again")
             }
