@@ -24,82 +24,75 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="Dli-5e-yz4">
-                                <rect key="frame" x="67" y="308" width="280" height="280"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="zG2-Ue-r8f">
-                                        <rect key="frame" x="0.0" y="0.0" width="280" height="60"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iEl-Ta-zas">
-                                                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="60" id="6CD-jJ-dsP"/>
-                                                    <constraint firstAttribute="width" constant="60" id="NKd-SV-6Wm"/>
-                                                </constraints>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0OQ-GZ-0P8">
-                                                <rect key="frame" x="110" y="0.0" width="60" height="60"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FrU-bX-1U8">
-                                                <rect key="frame" x="220" y="0.0" width="60" height="60"/>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="Awy-0s-NM0">
-                                        <rect key="frame" x="0.0" y="110" width="280" height="60"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5hE-WN-TfM">
-                                                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IoR-Sk-tHm">
-                                                <rect key="frame" x="110" y="0.0" width="60" height="60"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FSO-Dd-csx">
-                                                <rect key="frame" x="220" y="0.0" width="60" height="60"/>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="aBy-f5-6j5">
-                                        <rect key="frame" x="0.0" y="220" width="280" height="60"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8VU-XQ-hRr">
-                                                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y17-Uw-TrO">
-                                                <rect key="frame" x="110" y="0.0" width="60" height="60"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sbH-X3-BOR">
-                                                <rect key="frame" x="220" y="0.0" width="60" height="60"/>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                            </stackView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="q6X-71-gxJ">
+                                <rect key="frame" x="41.5" y="282.5" width="331" height="331"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="q6X-71-gxJ" secondAttribute="height" multiplier="1:1" id="XkG-K7-NWs"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="O3S-lP-lRK">
+                                    <size key="itemSize" width="137" height="132"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="QlY-b4-KSk">
+                                        <rect key="frame" x="0.0" y="0.0" width="137" height="132"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="137" height="132"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" tag="-1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Zd-Ul-RxY">
+                                                    <rect key="frame" x="34.5" y="32" width="68.5" height="68.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="9Zd-Ul-RxY" secondAttribute="height" multiplier="1:1" id="J74-di-nUW"/>
+                                                    </constraints>
+                                                    <state key="normal" title="●"/>
+                                                </button>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="9Zd-Ul-RxY" firstAttribute="width" secondItem="QlY-b4-KSk" secondAttribute="width" multiplier="1:2" id="H1I-dq-vbN"/>
+                                            <constraint firstItem="9Zd-Ul-RxY" firstAttribute="centerX" secondItem="QlY-b4-KSk" secondAttribute="centerX" id="R9n-nl-zIU"/>
+                                            <constraint firstItem="9Zd-Ul-RxY" firstAttribute="centerY" secondItem="QlY-b4-KSk" secondAttribute="centerY" id="oYX-6d-GJw"/>
+                                        </constraints>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="alR-qE-7d5">
+                                <rect key="frame" x="324" y="44" width="70" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="Hev-bi-7wh"/>
+                                    <constraint firstAttribute="width" constant="70" id="wh6-eQ-ZLy"/>
+                                </constraints>
+                                <state key="normal" title="RESET"/>
+                                <connections>
+                                    <action selector="reset:" destination="BYZ-38-t0r" eventType="touchUpInside" id="i5S-6L-zZs"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="q6X-71-gxJ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="1Vw-Th-GB3"/>
+                            <constraint firstItem="q6X-71-gxJ" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="4:5" id="1gO-Yt-OI0"/>
+                            <constraint firstItem="alR-qE-7d5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="HJh-RN-Vch"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="alR-qE-7d5" secondAttribute="trailing" constant="20" id="MP5-0R-KST"/>
                             <constraint firstItem="Rdt-CK-3oA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="MnS-lR-yxN"/>
-                            <constraint firstItem="Dli-5e-yz4" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="eiz-Oo-bVS"/>
-                            <constraint firstItem="Dli-5e-yz4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lB4-W0-MAj"/>
+                            <constraint firstItem="q6X-71-gxJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Sln-gG-yHi"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Rdt-CK-3oA" secondAttribute="trailing" constant="10" id="x67-Nb-hTN"/>
                             <constraint firstItem="Rdt-CK-3oA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="zc2-hA-YPv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outletCollection property="buttons" destination="iEl-Ta-zas" collectionClass="NSMutableArray" id="Zul-iE-BfE"/>
-                        <outletCollection property="buttons" destination="0OQ-GZ-0P8" collectionClass="NSMutableArray" id="GYk-9p-G8C"/>
-                        <outletCollection property="buttons" destination="FrU-bX-1U8" collectionClass="NSMutableArray" id="KOd-lx-Kby"/>
-                        <outletCollection property="buttons" destination="5hE-WN-TfM" collectionClass="NSMutableArray" id="Qhm-WA-a54"/>
-                        <outletCollection property="buttons" destination="IoR-Sk-tHm" collectionClass="NSMutableArray" id="LR3-Xs-yNC"/>
-                        <outletCollection property="buttons" destination="FSO-Dd-csx" collectionClass="NSMutableArray" id="6bq-KI-U5M"/>
-                        <outletCollection property="buttons" destination="8VU-XQ-hRr" collectionClass="NSMutableArray" id="ogH-8k-3LU"/>
-                        <outletCollection property="buttons" destination="Y17-Uw-TrO" collectionClass="NSMutableArray" id="gHl-8U-OJB"/>
-                        <outletCollection property="buttons" destination="sbH-X3-BOR" collectionClass="NSMutableArray" id="Ebk-Vx-WxO"/>
+                        <outlet property="gestureCollectionView" destination="q6X-71-gxJ" id="K1R-Hp-kwQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="47.826086956521742" y="20.758928571428569"/>
         </scene>
     </scenes>
 </document>
