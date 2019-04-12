@@ -18,15 +18,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gesture Password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rdt-CK-3oA">
-                                <rect key="frame" x="10" y="104" width="394" height="36"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gesture Password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Rdt-CK-3oA">
+                                <rect key="frame" x="10" y="64" width="394" height="42"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="q6X-71-gxJ" customClass="GestureCollectionView" customModule="GesturePassword" customModuleProvider="target">
                                 <rect key="frame" x="41.5" y="282.5" width="331" height="331"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="q6X-71-gxJ" secondAttribute="height" multiplier="1:1" id="XkG-K7-NWs"/>
                                 </constraints>
@@ -47,13 +47,33 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zCa-gn-hqJ">
+                                <rect key="frame" x="20" y="804" width="374" height="29"/>
+                                <segments>
+                                    <segment title="Setting Password"/>
+                                    <segment title="Unlock password"/>
+                                </segments>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </segmentedControl>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" maximumValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="k3F-VE-hw3">
+                                <rect key="frame" x="160" y="745" width="94" height="29"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="changeRows:" destination="BYZ-38-t0r" eventType="valueChanged" id="8cl-sJ-LB7"/>
+                                </connections>
+                            </stepper>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="q6X-71-gxJ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="1Vw-Th-GB3"/>
                             <constraint firstItem="q6X-71-gxJ" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="4:5" id="1gO-Yt-OI0"/>
-                            <constraint firstItem="Rdt-CK-3oA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="MnS-lR-yxN"/>
+                            <constraint firstItem="Rdt-CK-3oA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="MnS-lR-yxN"/>
                             <constraint firstItem="q6X-71-gxJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Sln-gG-yHi"/>
+                            <constraint firstItem="k3F-VE-hw3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Y28-TW-rpY"/>
+                            <constraint firstItem="zCa-gn-hqJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="dQa-MP-IqY"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zCa-gn-hqJ" secondAttribute="trailing" constant="20" id="fmq-Ui-sOI"/>
+                            <constraint firstItem="zCa-gn-hqJ" firstAttribute="top" secondItem="k3F-VE-hw3" secondAttribute="bottom" constant="30" id="j0y-w6-VYM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="zCa-gn-hqJ" secondAttribute="bottom" constant="30" id="mcd-Ji-3uT"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Rdt-CK-3oA" secondAttribute="trailing" constant="10" id="x67-Nb-hTN"/>
                             <constraint firstItem="Rdt-CK-3oA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="zc2-hA-YPv"/>
                         </constraints>

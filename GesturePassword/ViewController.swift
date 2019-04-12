@@ -21,6 +21,11 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var gestureCollectionView: GestureCollectionView!
     
+    @IBAction func changeRows(_ sender: UIStepper) {
+        row = Int(sender.value)
+        gestureCollectionView.reloadSections(IndexSet(integer: 0))
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         gestureCollectionView.dataSource = self
@@ -35,8 +40,8 @@ class ViewController: UIViewController {
             shapeLayer.frame = gestureCollectionView.bounds
             shapeLayer.position = gestureCollectionView.center
             shapeLayer.fillColor = nil
-            shapeLayer.lineWidth = 5
-            shapeLayer.strokeColor = UIColor.red.cgColor
+            shapeLayer.lineWidth = 3
+            shapeLayer.strokeColor = UIColor.green.cgColor
             let path = UIBezierPath()
             path.move(to: currentPoint)
             path.addLine(to: point)
@@ -67,8 +72,8 @@ extension ViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath)
         cell.tag = indexPath.row
         cell.layer.cornerRadius = cell.bounds.height / 2
-        cell.layer.borderColor = !selectedPassword.contains(indexPath.row) ? UIColor.black.cgColor : UIColor.red.cgColor
-        cell.layer.borderWidth = 5
+        cell.layer.borderColor = !selectedPassword.contains(indexPath.row) ? UIColor.white.cgColor : UIColor.green.cgColor
+        cell.layer.borderWidth = 3
         return cell
     }
 }
@@ -80,15 +85,18 @@ extension ViewController: UICollectionViewDelegate {
 extension ViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 60, height: 60)
+        let width = collectionView.bounds.width / CGFloat(row * 2 - 1)
+        return CGSize(width: width, height: width)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return (collectionView.bounds.width - CGFloat(60 * row)) / CGFloat(row - 1)
+        let width = collectionView.bounds.width / CGFloat(row * 2 - 1)
+        return width
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return (collectionView.bounds.width - CGFloat(60 * row)) / CGFloat(row - 1)
+        let width = collectionView.bounds.width / CGFloat(row * 2 - 1)
+        return width
     }
 }
 
@@ -103,8 +111,8 @@ extension ViewController: GestureCollectionViewDelegate {
             moveLayer?.frame = gestureCollectionView.bounds
             moveLayer?.position = gestureCollectionView.center
             moveLayer?.fillColor = nil
-            moveLayer?.lineWidth = 5
-            moveLayer?.strokeColor = UIColor.red.cgColor
+            moveLayer?.lineWidth = 3
+            moveLayer?.strokeColor = UIColor.green.cgColor
             let path = UIBezierPath()
             path.move(to: currentPoint)
             path.addLine(to: point)
