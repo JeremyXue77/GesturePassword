@@ -186,7 +186,6 @@ extension ViewController: GestureCollectionViewDelegate {
                     cell.layer.borderColor = UIColor.red.cgColor
                 }
                 moveLayer?.strokeColor = UIColor.red.cgColor
-                gestureCollectionView.reloadData()
                 showMessageAlert(message: "Unlock failed, please try again")
             }
         }
