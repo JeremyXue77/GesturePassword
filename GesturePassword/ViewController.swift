@@ -20,7 +20,11 @@ class ViewController: UIViewController {
     private var gesturePasswordType = GesturePasswordType.setting
     private var password = [Int]()
     private var selectedPassword = [Int]()
-    private var lineLayers = [CAShapeLayer]()
+    private var lineLayers = [CAShapeLayer]() {
+        didSet {
+            print(lineLayers.count)
+        }
+    }
     private var row = 3
     private let buttonTag = -1
     private let cellID = "cell"
@@ -88,6 +92,7 @@ class ViewController: UIViewController {
             self?.lineLayers.forEach { (layer) in
                 layer.removeFromSuperlayer()
             }
+            self?.lineLayers.removeAll()
             self?.selectedPassword.removeAll()
             self?.gestureCollectionView.reloadSections(IndexSet(integer: 0))
             self?.currentPoint = nil
