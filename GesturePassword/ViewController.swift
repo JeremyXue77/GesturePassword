@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AudioToolbox
 
 enum GesturePasswordType: Int {
     case setting = 0
@@ -75,12 +76,13 @@ class ViewController: UIViewController {
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         gestureCollectionView.touchesMoved(touches, with: event)
     }
-    
+
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         gestureCollectionView.touchesEnded(touches, with: event)
     }
     
     func showMessageAlert(message: String) {
+        AudioServicesPlayAlertSound(kSystemSoundID_Vibrate)
         let alert = UIAlertController(title: "Gesture Password", message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { [weak self](_) in
             self?.lineLayers.forEach { (layer) in
@@ -163,6 +165,7 @@ extension ViewController: GestureCollectionViewDelegate {
         selectedPassword.append(indexPath.row)
         moveLayer?.removeFromSuperlayer()
         moveLayer = nil
+        AudioServicesPlaySystemSound(1520)
         gestureCollectionView.reloadItems(at: [indexPath])
     }
     
